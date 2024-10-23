@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSS Attack Detection</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <div class="container text-center my-5">
+        <h1 class="display-5 text-danger">XSS Attack Detection</h1>
+        <p class="lead">Enter input to check if it's vulnerable to Cross-Site Scripting (XSS)</p>
+
+        <form method="POST" action="/xss" class="mt-4"> <!-- Changed action to match Flask route -->
+            <div class="mb-3">
+                <textarea class="form-control" id="xssInput" name="xssInput" rows="5"
+                    placeholder="Enter your input...">{{ query if query else '' }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-outline-danger btn-lg shadow">Check for XSS</button>
+        </form>
+
+        {% if prediction %}
+        <div class="alert mt-4 {{ 'alert-danger' if prediction == 'XSS Attack' else 'alert-success' }}" role="alert">
+            <h4 class="alert-heading">{{ prediction }}</h4>
+            <p>Confidence: <strong>{{ confidence }}</strong></p>
+        </div>
+        {% endif %}
+    </div>
+
+    <footer class="text-center mt-5">
+        <p class="text-muted">&copy; 2024 Attack Detection System. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
