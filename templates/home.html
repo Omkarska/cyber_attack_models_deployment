@@ -20,8 +20,8 @@
         .btn-lg {
             padding: 15px 40px;
             font-size: 1.25rem;
-            min-width: 250px;
-            height: 100px;
+            min-width: 200px;
+            height: 80px;
         }
 
         .container {
@@ -45,10 +45,9 @@
         /* Add spacing between icons and text */
         .btn i {
             margin-right: 10px;
-            /* Add consistent margin to the right of the icon */
         }
 
-        /* Add a more vibrant color scheme */
+        /* Vibrant color scheme */
         .btn-outline-primary {
             color: #007bff;
             border-color: #007bff;
@@ -84,6 +83,23 @@
             justify-content: center;
             align-items: center;
         }
+
+        /* Adjust card and button width for smaller screens */
+        @media (max-width: 1200px) {
+            .btn-lg {
+                padding: 10px 30px;
+                min-width: 150px;
+                height: 70px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .btn-lg {
+                padding: 10px 20px;
+                min-width: 120px;
+                height: 60px;
+            }
+        }
     </style>
 </head>
 
@@ -94,7 +110,7 @@
 
         <!-- Main buttons section -->
         <div class="row justify-content-center">
-            <div class="col-md-3">
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                 <div class="card shadow-lg">
                     <div class="card-body">
                         <a href="/sql-injection" class="btn btn-lg btn-outline-primary btn-block">
@@ -104,7 +120,7 @@
                 </div>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                 <div class="card shadow-lg">
                     <div class="card-body">
                         <a href="/xss" class="btn btn-lg btn-outline-danger btn-block">
@@ -114,7 +130,7 @@
                 </div>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                 <div class="card shadow-lg">
                     <div class="card-body">
                         <a href="/file-analysis" class="btn btn-lg btn-outline-success btn-block">
